@@ -1,0 +1,7 @@
+kivy>=2.2.0
+openpyxl>=3.1.0
+Pillow>=10.0.0
+requests>=2.31.0
+certifi
+urllib3
+plyer>=2.1.0
