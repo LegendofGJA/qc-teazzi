@@ -58,7 +58,7 @@ ScreenManager:
             size_hint_y: 0.3
 
         Label:
-            text: "📸"
+            text: "🐟"
             font_size: dp(64)
             size_hint_y: None
             height: dp(80)
@@ -141,7 +141,7 @@ ScreenManager:
     BoxLayout:
         orientation: "vertical"
 
-        # ── HEADER ──
+        # HEADER
         BoxLayout:
             size_hint_y: None
             height: dp(56)
@@ -154,14 +154,14 @@ ScreenManager:
                     size: self.size
 
             Label:
-                text: "📸 QC Teazzi"
+                text: "🐟 QC Teazzi"
                 font_size: dp(20)
                 bold: True
                 halign: "left"
                 valign: "middle"
                 text_size: self.size
 
-        # ── SCROLL CONTENT ──
+        # SCROLL
         ScrollView:
             do_scroll_x: False
             bar_color: COLORS["accent"]
@@ -173,7 +173,7 @@ ScreenManager:
                 size_hint_y: None
                 height: self.minimum_height
 
-                # NAMA PENGGUNA
+                # NAMA
                 BoxLayout:
                     orientation: "vertical"
                     size_hint_y: None
@@ -200,7 +200,7 @@ ScreenManager:
                         id: inp_user
                         hint_text: "Ketik nama Anda"
 
-                # INFO LOKASI
+                # LOKASI
                 BoxLayout:
                     orientation: "vertical"
                     size_hint_y: None
@@ -232,7 +232,7 @@ ScreenManager:
                         id: inp_tanggal
                         hint_text: "Tanggal QC (contoh: 10 Mar 26)"
 
-                # TEMPLATE EXCEL
+                # TEMPLATE
                 BoxLayout:
                     orientation: "vertical"
                     size_hint_y: None
@@ -308,7 +308,7 @@ ScreenManager:
                         size_hint_y: None
                         height: dp(20)
 
-                # UPLOAD FOTO
+                # FOTO
                 BoxLayout:
                     orientation: "vertical"
                     size_hint_y: None
@@ -350,7 +350,7 @@ ScreenManager:
                         size_hint_y: None
                         height: dp(20)
 
-                # TOMBOL PROSES
+                # PROSES
                 Button:
                     id: btn_process
                     text: "MULAI PROSES"
@@ -385,12 +385,12 @@ ScreenManager:
                         size_hint_y: None
                         height: dp(24)
 
-                # RESULT BOX (hidden initially)
+                # RESULT
                 BoxLayout:
                     id: result_box
                     orientation: "vertical"
                     size_hint_y: None
-                    height: dp(180)
+                    height: dp(200)
                     padding: dp(14)
                     spacing: dp(10)
                     opacity: 0
@@ -404,12 +404,12 @@ ScreenManager:
                             radius: [dp(12)]
 
                     Label:
-                        text: "✅ File Tersimpan"
-                        font_size: dp(13)
+                        text: "✅ Berhasil Disimpan!"
+                        font_size: dp(14)
                         color: COLORS["green"]
                         bold: True
                         size_hint_y: None
-                        height: dp(20)
+                        height: dp(24)
 
                     Label:
                         id: lbl_output_path
@@ -417,12 +417,12 @@ ScreenManager:
                         font_size: dp(11)
                         color: COLORS["text_sec"]
                         size_hint_y: None
-                        height: dp(18)
+                        height: dp(20)
 
                     BoxLayout:
                         spacing: dp(8)
                         size_hint_y: None
-                        height: dp(44)
+                        height: dp(48)
 
                         Button:
                             text: "📤 Share"
@@ -446,9 +446,12 @@ ScreenManager:
                             background_color: COLORS["surface2"]
                             on_release: root.open_file()
 
-                    Widget:
+                    Label:
+                        text: "Buka File Manager → Download → QCTeazzi → output"
+                        font_size: dp(10)
+                        color: COLORS["text_muted"]
                         size_hint_y: None
-                        height: dp(4)
+                        height: dp(16)
 
                 # FOOTER
                 Label:
