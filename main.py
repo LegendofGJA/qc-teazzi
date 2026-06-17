@@ -1,16 +1,23 @@
 import os
 import sys
 
-# Tambahkan folder project ke path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.utils import platform
 from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager
 
 # Load KV
-Builder.load_file(os.path.join(os.path.dirname(__file__), "kv", "app.kv"))
+try:
+    kv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "kv", "app.kv")
+    if not os.path.exists(kv_path):
+        kv_path = "/data/data/com.lgja.qcteazzi/files/app/kv/app.kv"
+    Builder.load_file(kv_path)
+except Exception as e:
+    from kivy.logger import Logger
+    Logger.error(f"QC Teazzi: KV load failed: {e}")
 
 from screens.splash_screen import SplashScreen
 from screens.home_screen import HomeScreen
@@ -24,7 +31,6 @@ class QCteazziApp(App):
         Window.softinput_mode = "below_target"
         if platform == "android":
             self._request_permissions()
-        from kivy.uix.screenmanager import ScreenManager
         sm = ScreenManager()
         sm.add_widget(SplashScreen())
         sm.add_widget(HomeScreen())
